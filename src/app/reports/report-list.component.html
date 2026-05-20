@@ -1,0 +1,50 @@
+<section>
+  <ul class="report-list">
+    @for (report of reports(); track report.id) {
+      <li class="report-row">
+        <div class="report-info">
+          <span class="report-name">{{ report.name }}</span>
+          <span class="report-meta">{{ report.date }} · {{ report.size }}</span>
+        </div>
+
+        <!-- Before -->
+        <!-- <button
+          matButton="outlined"
+          [disabled]="downloadingId() !== null"
+          (click)="download(report)">
+          Download
+        </button> -->
+
+        <!-- 1. -->
+        <!-- <button
+          matButton="outlined"
+          [disabled]="downloadingId() !== null"
+          (click)="download(report)">
+          @if (downloadingId() === report.id) {
+            <mat-progress-spinner
+              mode="indeterminate"
+              [diameter]="20"
+              aria-label="Downloading"
+            />
+          } @else {
+            Download
+          }
+        </button> -->
+
+        <button
+          matButton="outlined"
+          [showProgress]="downloadingId() === report.id"
+          [disabled]="downloadingId() !== null"
+          (click)="download(report)">
+          <mat-progress-spinner
+            progressIndicator
+            mode="indeterminate"
+            [diameter]="20"
+            aria-label="Downloading"
+          />
+          Download
+        </button>
+      </li>
+    }
+  </ul>
+</section>

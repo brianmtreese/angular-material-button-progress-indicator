@@ -1,0 +1,58 @@
+@use '@angular/material' as mat;
+
+:root {
+  color-scheme: dark;
+  --color-page: hsl(220 18% 10%);
+  --color-surface: hsl(222 28% 15%);
+  --color-surface-muted: hsl(222 24% 19%);
+  --color-border: hsl(215 18% 32%);
+  --color-text: hsl(0 0% 100%);
+  --color-text-muted: hsl(215 16% 72%);
+  --color-accent: #007bff;
+  --color-accent-hover: #333;
+  --shadow-card: 0 24px 80px hsl(220 40% 2% / 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+  background:
+    radial-gradient(circle at top left, hsl(212 82% 28% / 0.28), transparent 24rem),
+    var(--color-page);
+  color: var(--color-text);
+
+  @include mat.theme(
+    (
+      color: (
+        theme-type: dark,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: (
+        plain-family: Arial,
+        brand-family: Arial,
+        bold-weight: 700,
+        medium-weight: 700,
+        regular-weight: 400,
+      ),
+      density: 0,
+    )
+  );
+}
+
+body {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center;
+  margin: 0;
+  min-height: 100%;
+  padding: 1em;
+}
+
+app-root {
+  width: min(100%, 600px);
+}
